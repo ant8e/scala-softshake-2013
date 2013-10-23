@@ -49,5 +49,45 @@ object Db {
 
   }
 
+  trait ContactRepositoryComponent {
+    def contactRepository: ContactRepository
+
+    trait ContactRepository {
+      def insert(first: String, last: String, email: String)
+
+      def listAll: List[(Int, String, String, String)]
+    }
+
+  }
+
+  trait ContactRepositoryComponentH2Impl extends ContactRepositoryComponent {
+    def contactRepository = new ContactRepositoryH2Impl
+
+    class ContactRepositoryH2Impl extends ContactRepository {
+
+      import Schema.contacts
+
+      val url = "jdbc:h2:file:softshake"
+      val driver = "org.h2.Driver"
+      Class.forName("org.h2.Driver")
+
+      lazy val db = Database.forURL(url, driver)
+
+      def insert(first: String, last: String, email: String) = {
+        db.withSession {
+          contacts.forInsert returning contacts.id insert (first, last, email)
+        }
+
+      }
+
+      def listAll = {
+        db.withSession {
+          Query(contacts).list()
+        }
+      }
+    }
+
+  }
+
 }
 
