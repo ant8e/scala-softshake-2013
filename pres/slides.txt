@@ -1,0 +1,93 @@
+Titre
+
+Introduction : Software architect dans l'entreprise . Kaylyss société de service et de conseil Suisse romande
+
+Scala petit rappel
+
+Scala langage de prog né près de chez nos à l'EPFL, créé par Martin Odersky, Open Source 
+
+Language multi-paradigme combinant approche orienté objet et programmation fonctionelle sur la JVM,  inertopearbilité avec java, syntaxe concise et sans cérémonie, un typage statique
+
+Scala connait un certain succés sur des gros sites web Tweeter / LinkedIn pour n'en citer que deux. car il est se prete très bien a des problématiques de conccurence et de distribution
+
+Tout cela est bien séduisant, mais quand est il du quotidein.
+
+Il ne faut pas se voiler la face, dans l'entreprise, une grande majorité d'application sont des applis orienté Data Entry ... avec des nb d'utilisateurs faibles et relativement peu de concurrence, le hardware actuel suffit bien ds fois. 
+c'est pas ce qu'il y a de plus sexy ... mais c'est la vie....
+
+Dans ce contexte Scala me semble pouvoir aporter egalement des solutions interessantes, et on va les explorer rapidement .
+
+Quelques points fort interessant du langugage
+
+Case class vs Getter Setter
+
+Pattern matching vs InstanceOF
+
+Option[] vs null
+
+Trait vs Interface+Impl
+
+Et un gros point fort : Le compilateur et le typage => Compile Time vs RunTime, rien que pour la fiabilité ... c'est énorme
+
+Adieu NPE / ClasCastException : 
+
+Passons au code ... 
+
+Tenter de construire une petite application de contact ...
+
+Structuration classique UI / Service /Data Access
+
+Pour la couche data, il existe une librairie bien pratique , Slick
+
+Démo :
+
+Structuration de l'appli et couche de service ... 
+
+
+Le cake pattern ou l'injection de dépendance  ...
+
+self type  : => dépendance
+
+
+Démo / restructuration du code
+
+type safety /type safety type safety /type safety
+
+
+La couche UI. 
+
+j'ai choisi de vous montrer avec Vaadin car ca déchire et ca marche très bien avec Scala
+
+ Vaadin qu'est ce donc :
+
+ * Un FW RIA 
+ * Une approche server side programming 
+ * une partie client basée sur GWT et HTML5 
+ * Un modéle permettant de s'abstenir de de s'abstraire des problématique bas niveau de RPC et de compatibilité entre browser.
+
+ * Surtout un FW qui colle bien aux besoins de nos application orientés  	
+
+
+Vaadin est un FW java, qui peut donc s'utiliser telle quel en Scala.
+
+Scaladin est un addon qui propose une API plus idiomatique pour Scala
+
+Démo :
+
+
+
+Bien sur, je ne vient que d'effleurer la surface, il y aurait pleins de sujets à aborder 
+
+Testing => Plusieurs option scala test par exemple 
+Logging => Intégration avec SLF4J
+Transactions => Supportés dans Slick
+Configuration => TypeSafe Config par exemple
+Build => SBT
+
+Questions
+
+
+
+
+
+
