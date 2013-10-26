@@ -1,7 +1,6 @@
 package softshake.ui
 
 import softshake.ContactServiceComponent
-import softshake.db.Db
 import vaadin.scala._
 import vaadin.scala.server.ScaladinRequest
 import scala.beans.BeanProperty
