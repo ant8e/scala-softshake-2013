@@ -12,10 +12,15 @@ class DemoUI extends UI(title = "Hello SoftShake") {
 
   }
 
+  case class Contact(@BeanProperty id: Int, @BeanProperty firstName: String, @BeanProperty lastName: String, @BeanProperty email: String)
 
+  val table = new Table {
+    sizeFull()
+    container = new BeanItemContainer[Contact](app.mainComponent.service.listAll.map { case (i, f, l, e) ⇒ Contact(i, f, l, e) })
+  }
   val layout = new VerticalLayout {
     val hello = Label("HelloWorld")
     sizeFull()
-    components += (hello)
+    components += (table)
   }
 }
